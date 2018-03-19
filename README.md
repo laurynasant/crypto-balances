@@ -122,3 +122,10 @@ $client = new BalanceClient();
 $client->addProvider($binance);
 var_dump($client->getBalanceList());
 ```
+
+getExchangeRates() - returns the USD exchange rates from CoinMarketCap:
+
+```php
+$client = new \Orca\CryptoBalances\Service\ExchangeRateClient();
+var_dump($client->getExchangeRates());
+```
