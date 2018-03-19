@@ -4,8 +4,8 @@
 Crypto and Fiat Currency Balances
 =================================
 
-[![Build Status](https://travis-ci.org/laurynasant/crypto-balances.svg?branch=master)](https://travis-ci.org/laurynasant/crypto-balances)
-[![Coverage Status](https://coveralls.io/repos/github/laurynasant/crypto-balances/badge.svg?branch=master)](https://coveralls.io/github/laurynasant/crypto-balances?branch=master)
+[![Build Status](https://travis-ci.org/orcaalliance/crypto-balances.svg?branch=master)](https://travis-ci.org/orcaalliance/crypto-balances)
+[![Coverage Status](https://coveralls.io/repos/github/orcaalliance/crypto-balances/badge.svg?branch=master)](https://coveralls.io/github/orcaalliance/crypto-balances?branch=master)
 
 This project aims to integrate the various sources and accounts where crypto currency and fiat currency is held. It provides balance information in a single place
 
