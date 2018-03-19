@@ -1,5 +1,5 @@
 {
-    "name": "laurynasant/crypto-balances",
+    "name": "orcaalliance/crypto-balances",
     "description": "PHP library to retrieve crypto and fiat balances",
     "keywords": [
         "cryptocurrency",
@@ -13,7 +13,7 @@
     "authors": [
         {
             "name": "Orca Alliance and contributors",
-            "homepage": "https://github.com/laurynasant/crypto-balances/contributors"
+            "homepage": "https://github.com/orcaalliance/crypto-balances/contributors"
         }
     ],
     "type": "project",
