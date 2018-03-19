@@ -16,7 +16,7 @@
             "homepage": "https://github.com/orcaalliance/crypto-balances/contributors"
         }
     ],
-    "type": "project",
+    "type": "library",
     "require": {
         "php": ">=7.1",
         "ext-curl": "*",
