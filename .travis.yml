@@ -1,0 +1,24 @@
+language: php
+
+php:
+  - 7.1
+
+install:
+  - travis_retry composer install
+
+before_script:
+  - mkdir -p build/logs
+
+script:
+  - php vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+
+after_success:
+  - travis_retry php vendor/bin/php-coveralls -v
+
+branches:
+  only: master
+
+cache:
+  directories:
+  - vendor
+  - $HOME/.cache/composer

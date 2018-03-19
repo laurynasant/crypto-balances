@@ -1,0 +1,38 @@
+{
+    "name": "laurynasant/crypto-balances",
+    "description": "PHP library to retrieve crypto and fiat balances",
+    "keywords": [
+        "cryptocurrency",
+        "crypto",
+        "openbank",
+        "btc",
+        "eth"
+    ],
+    "homepage": "https://orcaalliance.eu",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Orca Alliance and contributors",
+            "homepage": "https://github.com/laurynasant/crypto-balances/contributors"
+        }
+    ],
+    "type": "project",
+    "require": {
+        "php": ">=7.1",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ccxt/ccxt": "^1.10",
+        "marc-mabe/php-enum": "^3.0",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+	  "require-dev": {
+		    "phpunit/phpunit": "^7",
+        "php-coveralls/php-coveralls": "^2.0"
+    },
+	"autoload": {
+        "psr-4": {
+            "Orca\\CryptoBalances\\": "src/"
+        }
+    }
+}
