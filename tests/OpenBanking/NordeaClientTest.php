@@ -22,4 +22,9 @@ class NordeaClientTest extends TestCase {
     $this->assertInstanceOf(NordeaClient::class, $this->client);
   }
 
+  public function testNordeaClientName(): void
+  {
+      $this->assertEquals($this->client->getName(), "Nordea");
+  }
+
 }
