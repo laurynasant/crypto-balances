@@ -1,4 +1,4 @@
-![orca-logo](https://imgur.com/a/ouCeZ)
+![orca-logo](https://i.imgur.com/zfKmcuH.png)
 
 
 Crypto and Fiat Currency Balances
