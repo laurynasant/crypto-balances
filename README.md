@@ -47,6 +47,7 @@ Currently the module supports the following TOP Exchanges according to [CoinMark
 
 | Exchange Name | API documentation |
 |---------------|-------------------|
+| Bibox       | [API](https://github.com/Biboxcom/api_reference/wiki/home_en) |
 | Binance       | [API](https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-api.md) |
 | Bithumb       | [API](https://www.bithumb.com/u1/US127) |
 | Bit-Z       | [API](https://www.bit-z.com/api.html) |

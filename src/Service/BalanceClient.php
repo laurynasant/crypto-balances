@@ -22,7 +22,7 @@ class BalanceClient
                     $balances[$providerName][$currency] = $balance;
                 }
             } catch (\Throwable $t) {
-              echo $e->getMessage();
+                echo $t->getMessage();
             }
         }
 
