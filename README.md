@@ -54,6 +54,7 @@ Currently the module supports the following TOP Exchanges according to [CoinMark
 | Bit-Z       | [API](https://www.bit-z.com/api.html) |
 | Coinegg       | [API](https://www.coinegg.com/explain.api.html) |
 | EXMO       | [API](https://exmo.me/en/api_doc) |
+| GDax       | [API](https://docs.gdax.com/#api) |
 | HitBtc       | [API](https://api.hitbtc.com/) |
 | Huobi Pro    | [API](https://github.com/huobiapi/API_Docs/wiki/REST_api_reference) |
 | Kraken       | [API](https://www.kraken.com/en-us/help/api) |
