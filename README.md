@@ -51,6 +51,7 @@ Currently the module supports the following TOP Exchanges according to [CoinMark
 | Binance       | [API](https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-api.md) |
 | Bitfinex       | [API](https://docs.bitfinex.com/docs) |
 | Bithumb       | [API](https://www.bithumb.com/u1/US127) |
+| Bittrex       | [API](https://bittrex.com/home/api) |
 | Bit-Z       | [API](https://www.bit-z.com/api.html) |
 | Coinegg       | [API](https://www.coinegg.com/explain.api.html) |
 | EXMO       | [API](https://exmo.me/en/api_doc) |
