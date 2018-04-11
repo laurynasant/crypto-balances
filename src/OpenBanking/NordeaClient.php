@@ -2,8 +2,10 @@
 
 namespace Orca\CryptoBalances\OpenBanking;
 
-use GuzzleHttp\Client;
-
+/**
+ * Class NordeaClient
+ * @package Orca\CryptoBalances\OpenBanking
+ */
 class NordeaClient extends AbstractClient
 {
 
@@ -16,22 +18,66 @@ class NordeaClient extends AbstractClient
     }
 
     /**
+     * @return string
+     */
+    public function getAuthUrl() : string
+    {
+        return 'https://api.nordeaopenbanking.com/v1/authentication'
+            .'?client_id='.$this->key
+            .'&redirect_uri='.$this->redirectUri
+            .'&state=';
+    }
+
+    /**
+     * @return string
+     */
+    public function getTokenRequestUri() : string {
+        return 'https://api.nordeaopenbanking.com/v1/authentication/access_token';
+    }
+
+    /**
+     * @return array
+     */
+    public function getTokenRequestHeader() : array
+    {
+        return [
+            'Content-Type' => 'application/x-www-form-urlencoded',
+            'X-IBM-Client-Id'   => $this->key,
+            'X-IBM-Client-Secret'   => $this->secret
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getTokenRequestBody() : array
+    {
+        return [
+            'code'  => $this->authCode,
+            'redirect_uri'  => $this->redirectUri
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getResourceRequestHeader() : array
+    {
+        return [
+            'Authorization' => 'Bearer '.$this->accessToken['access_token'],
+            'X-IBM-Client-Id'   => $this->key,
+            'X-IBM-Client-Secret'   => $this->secret
+        ];
+    }
+
+    /**
      * @return array
      */
     public function getAccounts(): array
     {
         $accounts = [];
 
-        $response = (new Client())->get('https://api.nordeaopenbanking.com/v2/accounts',
-          [
-            'headers' => [
-              'X-IBM-Client-Id'     => $this->key,
-              'X-IBM-Client-Secret' => $this->secret,
-              'Authorization'       => 'Bearer '.$this->getToken()
-            ]
-          ]
-        );
-        $responseArray = json_decode($response->getBody()->getContents(), true);
+        $responseArray = $this->getResource('https://api.nordeaopenbanking.com/v2/accounts');
 
         foreach ($responseArray['response']['accounts'] as $account) {
           if (array_key_exists('availableBalance', $account)) {
@@ -45,24 +91,5 @@ class NordeaClient extends AbstractClient
         return $accounts;
     }
 
-    /**
-     * @return array
-     */
-    private function getToken(): string
-    {
-        $response = (new Client())->post('https://api.nordeaopenbanking.com/v1/authentication/access_token', [
-              'headers' => [
-                'X-IBM-Client-Id'     => $this->key,
-                'X-IBM-Client-Secret' => $this->secret,
-              ],
-              'form_params' => [
-                  'code'         => $this->authCode,
-                  'redirect_uri' => $this->redirectUri
-              ]
-            ]
-          );
-        $responseArray = json_decode($response->getBody()->getContents(), true);
 
-        return $responseArray['access_token'];
-    }
 }
