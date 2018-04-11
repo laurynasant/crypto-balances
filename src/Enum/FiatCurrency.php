@@ -10,4 +10,6 @@ use MabeEnum\Enum;
 class FiatCurrency extends Enum
 {
     const EUR = 'eur';
+    const USD = 'usd';
+    const GBP = 'gbp';
 }

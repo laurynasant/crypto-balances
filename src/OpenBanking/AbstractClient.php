@@ -5,6 +5,12 @@ namespace Orca\CryptoBalances\OpenBanking;
 use Orca\CryptoBalances\Service\ClientInterface;
 use Orca\CryptoBalances\Enum\FiatCurrency;
 
+use GuzzleHttp\Client;
+
+/**
+ * Class AbstractClient
+ * @package Orca\CryptoBalances\OpenBanking
+ */
 abstract class AbstractClient implements ClientInterface
 {
     /** @var string */
@@ -14,12 +20,15 @@ abstract class AbstractClient implements ClientInterface
     protected $secret;
 
     /** @var string */
-    protected $authCode;
+    public $authCode;
+
+    /** @var string */
+    public $authCodeKey = 'code';
 
     /** @var string */
     protected $redirectUri;
 
-    /** @var string */
+    /** @var array */
     protected $accessToken;
 
     /** @var array */
@@ -28,12 +37,12 @@ abstract class AbstractClient implements ClientInterface
     /**
      * @param string $key
      * @param string $secret
+     * @param string $redirectUri
      */
-    public function __construct(string $key, string $secret, string $authCode, string $redirectUri)
+    public function __construct(string $key, string $secret, string $redirectUri)
     {
         $this->key = $key;
         $this->secret = $secret;
-        $this->authCode = $authCode;
         $this->redirectUri = $redirectUri;
     }
 
@@ -42,11 +51,11 @@ abstract class AbstractClient implements ClientInterface
      */
     public function getBalance(FiatCurrency $currency): float
     {
-      // call the method to retrieve balances here
+        // call the method to retrieve balances here
 
-      $balance = $balances[$currency->getName()]['total'] ?? 0;
+        $balance = $balances[$currency->getName()]['total'] ?? 0;
 
-      return (float)$balance;
+        return (float)$balance;
     }
 
     /**
@@ -60,8 +69,8 @@ abstract class AbstractClient implements ClientInterface
             foreach ($this->fetchBalanceList() as $account) {
                 if ($account['currency'] == $currency->getName()) {
                     $results[$currency->getName()] = [
-                      'account' => $account['accountNumber'],
-                      'total' => $account['total']
+                        'account' => $account['accountNumber'],
+                        'total' => $account['total']
                     ];
                 }
             }
@@ -84,8 +93,24 @@ abstract class AbstractClient implements ClientInterface
 
     /**
      * @return array
+     * @param $uri
      */
-    abstract protected function getAccounts(): array;
+    public function getResource(string $uri)
+    {
+        if (!$this->accessToken) {
+            $this->accessToken = $this->getToken();
+        }
+
+        $response = (new Client())->request(
+            'GET',
+            $uri,
+            [
+                'headers' => $this->getResourceRequestHeader()
+            ]
+        );
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
 
     /**
      * @return array
@@ -95,6 +120,55 @@ abstract class AbstractClient implements ClientInterface
         return [
             'apiKey' => $this->key,
             'secret' => $this->secret,
+            'redirectUri' => $this->redirectUri,
         ];
     }
+
+    /**
+     * @return array
+     */
+    protected function getToken(): array
+    {
+        $response = (new Client())->request(
+            'POST',
+            $this->getTokenRequestUri(),
+            [
+                'headers' => $this->getTokenRequestHeader(),
+                'form_params' => $this->getTokenRequestBody()
+            ]
+        );
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    /**
+     * @return array
+     */
+    abstract protected function getAccounts(): array;
+
+    /**
+     * @return string
+     */
+    public abstract function getAuthUrl(): string;
+
+    /**
+     * @return string
+     */
+    public abstract function getTokenRequestUri(): string;
+
+    /**
+     * @return array
+     */
+    public abstract function getTokenRequestHeader(): array;
+
+    /**
+     * @return array
+     */
+    public abstract function getTokenRequestBody(): array;
+
+    /**
+     * @return array
+     */
+    public abstract function getResourceRequestHeader(): array;
+
 }
