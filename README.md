@@ -72,10 +72,11 @@ Also, the module supports the following Bank via their Open Banking integration:
 
 | Open Bank     | API documentation | Status |
 |---------------|-------------------|--------|
-| Nordea        | [API](https://developer.nordeaopenbanking.com) | Implemented |
-| SEB           | [API](https://developer.baltics.sebgroup.com/) | Upcoming    |
-| Swedbank      | [API](https://developer.swedbank.com/)         | Upcoming    |
-| Deutche Bank  | [API](https://api-open.db.com/)                | Upcoming    |
+| Deutche Bank  | [API](https://api-open.db.com/)                   | Implemented |
+| Hellenic      | [API](https://openapis.hellenicbank.com/test-apis)| Implemented |
+| Nordea        | [API](https://developer.nordeaopenbanking.com)    | Implemented |
+| SEB           | [API](https://developer.baltics.sebgroup.com/)    | Upcoming    |
+| Swedbank      | [API](https://developer.swedbank.com/)            | Upcoming    |
 
 
 Getting Started
