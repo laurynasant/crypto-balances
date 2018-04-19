@@ -13,7 +13,7 @@ class DeutscheBankClient extends AbstractClient {
      */
     public function getName(): string
     {
-        return 'DeutcheBank';
+        return 'DeutscheBank';
     }
 
     /**
