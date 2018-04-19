@@ -70,13 +70,14 @@ Currency support is also available according to the top 40 currencies as identif
 
 Also, the module supports the following Bank via their Open Banking integration:
 
-| Open Bank     | API documentation | Status |
-|---------------|-------------------|--------|
-| Deutche Bank  | [API](https://api-open.db.com/)                   | Implemented |
-| Hellenic      | [API](https://openapis.hellenicbank.com/test-apis)| Implemented |
-| Nordea        | [API](https://developer.nordeaopenbanking.com)    | Implemented |
-| SEB           | [API](https://developer.baltics.sebgroup.com/)    | Upcoming    |
-| Swedbank      | [API](https://developer.swedbank.com/)            | Upcoming    |
+| Open Bank     | API documentation                                                 | Status      |
+|---------------|-------------------------------------------------------------------|-------------|
+| Deutche Bank  | [API](https://api-open.db.com/)                                   | Implemented |
+| Hellenic      | [API](https://openapis.hellenicbank.com/test-apis)                | Implemented |
+| Nordea        | [API](https://developer.nordeaopenbanking.com)                    | Implemented |
+| BBVA          | [API](https://www.bbvaapimarket.com/how-it-works/get-started)     | Implemented |
+| SEB           | [API](https://developer.baltics.sebgroup.com/)                    | Upcoming    |
+| Swedbank      | [API](https://developer.swedbank.com/)                            | Upcoming    |
 
 
 Getting Started
