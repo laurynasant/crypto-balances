@@ -50,6 +50,7 @@ Currently the module supports the following TOP Exchanges according to [CoinMark
 | Bibox       | [API](https://github.com/Biboxcom/api_reference/wiki/home_en) |
 | Binance       | [API](https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-api.md) |
 | Bitfinex       | [API](https://docs.bitfinex.com/docs) |
+| Bitflyer       | [API](https://bitflyer.com/en-us/API) |
 | Bithumb       | [API](https://www.bithumb.com/u1/US127) |
 | Bitstamp       | [API](https://www.bitstamp.net/api/) |
 | Bittrex       | [API](https://bittrex.com/home/api) |
@@ -60,10 +61,12 @@ Currently the module supports the following TOP Exchanges according to [CoinMark
 | HitBtc       | [API](https://api.hitbtc.com/) |
 | Huobi Pro    | [API](https://github.com/huobiapi/API_Docs/wiki/REST_api_reference) |
 | Kraken       | [API](https://www.kraken.com/en-us/help/api) |
+| Lbank       | [API](https://www.lbank.info/api/api-overview) |
 | Liqui       | [API](https://liqui.io/api) |
 | OKEx       | [API](https://www.okex.com/rest_getStarted.html) |
 | Poloniex       | [API](https://poloniex.com/support/api/) |
 | WEX       | [API](https://wex.nz/api/3/docs) |
+| Zaif       | [API](http://techbureau-api-document.readthedocs.io/ja/latest/index.html) |
 
 
 Currency support is also available according to the top 40 currencies as identified by CoinMarketCap. You can find more info in [CoinMarketCap](https://coinmarketcap.com/)
