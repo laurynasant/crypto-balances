@@ -68,7 +68,7 @@ abstract class AbstractClient implements ClientInterface
         foreach (FiatCurrency::getEnumerators() as $currency) {
             foreach ($this->fetchBalanceList() as $account) {
                 if ($account['currency'] == $currency->getName()) {
-                    $results[$currency->getName()] = [
+                    $results[$currency->getName()][] = [
                         'account' => $account['accountNumber'],
                         'total' => $account['total']
                     ];
