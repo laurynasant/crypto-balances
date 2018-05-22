@@ -6,8 +6,8 @@ require __DIR__ . '/../vendor/autoload.php';
 use Orca\CryptoBalances\OpenBanking\NordeaClient as Client;
 
 // set the credentials
-$app_id = "16e12d81-3ff2-48e3-849c-948b43a67926";
-$app_secret = "R6nB2iG2nG4cB1jE4eU1kL5xK8nY7mR8lB7uW0jP6oS4wS8sJ6";
+$app_id = "app-id";
+$app_secret = "app-secret";
 
 // URI must be registered in Bank App's settings
 $redirectUri = ($_SERVER['HTTPS'] ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . explode('?', $_SERVER['REQUEST_URI'])[0];
