@@ -91,5 +91,28 @@ class NordeaClient extends AbstractClient
         return $accounts;
     }
 
+    /**
+     * @param array $transfer
+     * @return array
+     */
+    public function makeTransfer(array $transfer): array
+    {
+        return $this->postResource('https://api.nordeaopenbanking.com/v2/payments/sepa', $transfer);
+    }
+
+    /**
+     * @return array
+     */
+    public function getExtendedRequestHeader(): array
+    {
+        // sandbox only
+        return $this->getResourceRequestHeader() + [
+            'X-Response-Scenarios' => 'AuthorizationSkipAccessControl',
+            'Accept' => 'application/json, text/plain, */*',
+            'Content-Type' => 'application/json'
+        ];
+    }
+
+
 
 }

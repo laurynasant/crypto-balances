@@ -90,4 +90,23 @@ class BBVAClient extends AbstractClient
         return $accounts;
     }
 
+    public function makeTransfer(array $transfer): array
+    {
+        return $this->postResource('https://apis.bbva.com/payments-sbx/v1/me/transfers', $transfer);
+    }
+
+    /**
+     * @inheritdoc
+     * @return array
+     */
+    public function apiRequestHeader(): array
+    {
+        return [
+            'Authorization' => 'jwt ' . $this->accessToken['access_token'],
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json'
+        ];
+    }
+
 }
+

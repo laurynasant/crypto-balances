@@ -2,6 +2,8 @@
 
 namespace Orca\CryptoBalances\OpenBanking;
 
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 use Orca\CryptoBalances\Service\ClientInterface;
 use Orca\CryptoBalances\Enum\FiatCurrency;
 
@@ -170,5 +172,38 @@ abstract class AbstractClient implements ClientInterface
      * @return array
      */
     public abstract function getResourceRequestHeader(): array;
+
+
+    /**
+     * @return array
+     * @param $uri
+     * @param $data
+     */
+    public function postResource(string $uri, array $data)
+    {
+        if (!$this->accessToken) {
+            $this->accessToken = $this->getToken();
+        }
+
+            $response = (new Client(['http_errors' => false]))->request(
+                'POST',
+                $uri,
+                [
+                    'headers' => $this->getExtendedRequestHeader(),
+                    'body' => \GuzzleHttp\json_encode($data)
+                ]
+            );
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+
+    /**
+     * @return array
+     */
+    public function getExtendedRequestHeader() : array
+    {
+        return [];
+    }
 
 }
